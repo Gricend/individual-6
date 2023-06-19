@@ -122,15 +122,4 @@ class RegistroView(TemplateView):
             user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password1'])
             login(request, user)
             
-            # Obtener los grupos seleccionados por el usuario
-            grupos_seleccionados = request.POST.getlist('grupos')
-
-            # Asignar usuario a los grupos seleccionados
-            for grupo_nombre in grupos_seleccionados:
-                grupo = Group.objects.get(name=grupo_nombre)
-                user.groups.add(grupo)
-            
-            return redirect(self.success_url)
-            
-
         return render(request, self.template_name, {'form': form})
