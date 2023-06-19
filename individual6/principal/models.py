@@ -25,3 +25,4 @@ class FormularioContacto(models.Model):
                 ('puede_ver_usuarios', 'Permiso para ver usuarios'),
                 ('puede_ver_pagina', 'Permiso para ver pagina')
             ]
+
